@@ -8,6 +8,88 @@ import { useState } from "react";
 
 const sections = [
   {
+    id: "vision",
+    title: "Vision & Mission",
+    content: `BoobaBlip envisions a transformative future for financial markets through the convergence of quantum computing and artificial intelligence:
+
+1. Strategic Vision
+Our vision is to revolutionize the financial industry by:
+• Democratizing access to quantum-powered financial intelligence
+• Setting new standards in market analysis and risk management
+• Creating a more efficient and transparent financial ecosystem
+• Advancing the frontiers of quantum finance research
+• Fostering innovation in decentralized finance and traditional markets
+
+2. Mission Statement
+BoobaBlip's mission encompasses several key objectives:
+
+a) Technological Leadership
+• Pioneer quantum computing applications in finance
+• Advance the state-of-the-art in AI-driven trading
+• Develop breakthrough quantum algorithms
+• Maintain technological superiority through continuous innovation
+
+b) Market Impact
+• Reduce market inefficiencies through quantum analysis
+• Enhance price discovery mechanisms
+• Minimize transaction costs and market friction
+• Improve market stability and resilience
+
+c) Research & Development
+• Collaborate with leading academic institutions
+• Publish groundbreaking research in quantum finance
+• Contribute to open-source quantum computing projects
+• Drive standardization in quantum financial technologies
+
+3. Core Values & Principles
+
+a) Innovation Excellence
+• Continuous advancement in quantum computing
+• Breakthrough developments in AI algorithms
+• Pioneer new financial models and methodologies
+• Push the boundaries of technological capabilities
+
+b) Market Integrity
+• Promote fair and efficient markets
+• Enhance transparency through technology
+• Support regulatory compliance
+• Maintain highest ethical standards
+
+c) Client Success
+• Empower institutional investors
+• Provide unparalleled analytical capabilities
+• Enable data-driven decision making
+• Deliver measurable performance improvements
+
+4. Future Outlook
+
+a) Technology Evolution
+• Quantum supremacy in financial calculations
+• Advanced AI-quantum integration
+• Distributed quantum computing networks
+• Next-generation cryptographic systems
+
+b) Market Transformation
+• Quantum-enhanced market efficiency
+• AI-driven price discovery
+• Automated risk management
+• Real-time global market analysis
+
+5. Strategic Initiatives
+
+a) Research Partnerships
+• Quantum computing research collaborations
+• AI algorithm development programs
+• Academic institution partnerships
+• Industry standardization efforts
+
+b) Market Development
+• Global market presence expansion
+• Institutional adoption programs
+• Regulatory framework development
+• Industry education initiatives`,
+  },
+  {
     id: "introduction",
     title: "Introduction",
     content: `BoobaBlip represents a paradigm shift in quantitative finance through the integration of quantum computing methodologies with advanced financial modeling. This technical whitepaper presents a comprehensive analysis of our quantum-enhanced financial intelligence platform, which leverages quantum mechanical principles to revolutionize institutional trading and risk management.
