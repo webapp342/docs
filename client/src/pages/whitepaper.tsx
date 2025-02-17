@@ -83,7 +83,7 @@ export default function Whitepaper() {
         </div>
 
         <div className="flex flex-col lg:flex-row gap-6">
-          {/* Sticky sidebar for larger screens, bottom drawer for mobile */}
+          {/* Sticky sidebar for larger screens */}
           <div className="lg:w-64 order-2 lg:order-1">
             <Card className="p-4 lg:sticky lg:top-4 shadow-lg">
               <TableOfContents 
@@ -96,7 +96,7 @@ export default function Whitepaper() {
           {/* Main content */}
           <div className="flex-1 order-1 lg:order-2">
             <div 
-              className="prose prose-slate max-w-none lg:px-6 overflow-y-auto h-[calc(100vh-12rem)]"
+              className="prose prose-slate max-w-none lg:px-6 overflow-y-scroll h-[calc(100vh-12rem)] scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100"
               onScroll={handleScroll}
             >
               {sections.map((section) => (
