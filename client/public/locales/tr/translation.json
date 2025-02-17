@@ -8,6 +8,34 @@
     "introduction": {
       "title": "Giriş",
       "content": "BoobaBlip, kuantum bilişim metodolojilerinin gelişmiş finansal modellemelerle entegrasyonu yoluyla kantitatif finansta bir paradigma değişimini temsil eder. Bu teknik beyaz kitap, kurumsal ticaret ve risk yönetimini devrimleştirmek için kuantum mekanik prensiplerinden yararlanan kuantum-destekli finansal zeka platformumuzun kapsamlı bir analizini sunar."
+    },
+    "quantum-technology": {
+      "title": "Kuantum Hesaplama Mimarisi",
+      "content": "BoobaBlip'in kuantum mimarisinin teorik temeli, gelişmiş kuantum mekanik prensiplerine dayanır:\n\n1. Kuantum Durum Hazırlama\nSistemimiz, finansal piyasa verilerini bir dizi üniter dönüşüm yoluyla kodlayan kuantum durumları hazırlar.\n\n2. Kuantum Özellik Uzayı\nFinansal veriler, kuantum özellik haritaları aracılığıyla yüksek boyutlu Hilbert uzayına eşlenir.\n\n3. Dolanıklık-Geliştirilmiş İşleme\nMimarimiz, karmaşık piyasa korelasyonlarını yakalamak için kuantum dolanıklığını kullanır."
+    },
+    "financial-models": {
+      "title": "Gelişmiş Finansal Modeller",
+      "content": "Kuantum destekli finansal modellerimiz sofistike matematiksel çerçeveleri içerir:\n\n1. Kuantum Portföy Teorisi\nMarkowitz'in Modern Portföy Teorisi üzerine inşa edilerek, optimizasyon probleminin kuantum versiyonunu uyguluyoruz.\n\n2. Risk Metrikleri\nKuantum belirsizlik prensiplerini kullanan gelişmiş risk hesaplamaları.\n\n3. Piyasa Mikroyapı Modeli\nKuantum destekli piyasa mikroyapı modelimiz kuantum stokastik denklemleri içerir."
+    },
+    "ai-systems": {
+      "title": "Yapay Zeka Sistemleri",
+      "content": "BoobaBlip'in YZ mimarisi, en son teknoloji makine öğrenimini kuantum hesaplama ile entegre eder:\n\n1. Kuantum Makine Öğrenimi Temeli\nHibrit kuantum-klasik mimarimiz, kuantum sinir ağları ve gelişmiş özellik mühendisliği uygular.\n\n2. Piyasa Analiz Sistemleri\nGelişmiş zaman serisi işleme ve doğal dil işleme yetenekleri.\n\n3. Pekiştirmeli Öğrenme Çerçevesi\nKuantum geliştirilmiş politika optimizasyonu ve piyasa ortamı modellemesi."
+    },
+    "cryptoasset-analysis": {
+      "title": "Kripto Varlık Kuantum Analizi",
+      "content": "Kuantum hesaplama prensiplerini kullanan gelişmiş kripto varlık analizi:\n\n1. Kuantum Blokzincir Analizi\nÇerçevemiz, blokzincir analizine kuantum mekaniğini uygular.\n\n2. Zincirler Arası Korelasyon Analizi\nPiyasa analizi için kuantum dolanıklık özelliklerinden yararlanma.\n\n3. Kuantum Fiyat Keşif Modeli\nKuantum metrikleri içeren gelişmiş fiyat keşfi."
+    },
+    "security-protocols": {
+      "title": "Güvenlik & Kriptografik Çerçeve",
+      "content": "Güvenlik çerçevemiz gelişmiş kuantum kriptografik protokolleri uygular:\n\n1. Post-Kuantum Kriptografi Uygulaması\nKafes tabanlı ve hash tabanlı kriptografik çözümlerin uygulanması.\n\n2. Kuantum Anahtar Dağıtımı (QKD)\nKuantum bit hata oranı optimizasyonu ile geliştirilmiş güvenlik protokolleri.\n\n3. Kuantum Rastgele Sayı Üretimi\nGerçek rastgelelik için kuantum mekanik prensiplerinin kullanımı."
+    },
+    "market-dynamics": {
+      "title": "Piyasa Dinamikleri & Fiyat Oluşumu",
+      "content": "Piyasa mikroyapısı ve fiyat oluşum süreçlerinin gelişmiş analizi:\n\n1. Emir Akış Dinamikleri\nKuantum geliştirilmiş emir defteri analizi ve fiyat etki modellemesi.\n\n2. Piyasa Mikroyapısı\nGelişmiş bilgi akışı ve likidite dinamikleri analizi.\n\n3. Fiyat Oluşum Süreci\nKuantum geliştirilmiş fiyat keşfi ve arbitraj tespiti."
+    },
+    "performance": {
+      "title": "Performans Analizi & Karşılaştırmalar",
+      "content": "Sistem performans metriklerinin kapsamlı analizi:\n\n1. Kuantum İşleme Metrikleri\nKuantum hacmi ve tutarlılık süresinin detaylı analizi.\n\n2. Finansal Analiz Performansı\nFinansal hesaplamalar için verim ve gecikme metrikleri.\n\n3. Sistem Güvenilirlik Analizi\nKullanılabilirlik ve hata oranı istatistikleri."
     }
   }
 }
