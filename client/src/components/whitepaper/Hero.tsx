@@ -8,7 +8,6 @@ export default function Hero() {
         <div className="flex flex-col lg:flex-row items-center gap-8">
           <div className="lg:w-1/2">
             <div className="flex items-center gap-3 mb-6">
-              <SiQuantcast className="w-10 h-10 text-primary" />
               <h1 className="text-4xl lg:text-6xl font-bold">
                 BoobaBlip Technical Whitepaper
               </h1>
