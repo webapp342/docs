@@ -546,44 +546,122 @@ export default function Whitepaper() {
   };
 
   const handleDownload = () => {
-    const doc = new jsPDF();
-    let yPos = 20;
+    const doc = new jsPDF({
+      orientation: 'portrait',
+      unit: 'mm',
+      format: 'a4'
+    });
+
     const pageWidth = doc.internal.pageSize.getWidth();
+    const pageHeight = doc.internal.pageSize.getHeight();
+    const margin = 20;
+    const contentWidth = pageWidth - (2 * margin);
+    let yPos = margin;
 
-    // Add title
-    doc.setFontSize(20);
-    doc.text('BoobaBlip Technical Whitepaper', pageWidth/2, yPos, { align: 'center' });
-    yPos += 20;
+    // Helper function to add page number
+    const addPageNumber = () => {
+      doc.setFontSize(10);
+      doc.setTextColor(128, 128, 128);
+      doc.text(`Page ${doc.internal.getNumberOfPages()}`, pageWidth / 2, pageHeight - 10, { align: 'center' });
+    };
 
-    // Process each section
-    sections.forEach((section) => {
-      // Add section title
-      doc.setFontSize(16);
-      doc.text(section.title, 20, yPos);
-      yPos += 10;
+    // Add cover page
+    doc.setFontSize(24);
+    doc.setTextColor(0, 0, 0);
+    doc.text('BoobaBlip', pageWidth/2, yPos + 40, { align: 'center' });
 
-      // Add section content
+    doc.setFontSize(18);
+    doc.text('Technical Whitepaper', pageWidth/2, yPos + 50, { align: 'center' });
+
+    doc.setFontSize(12);
+    doc.text(`Generated: ${new Date().toLocaleDateString()}`, pageWidth/2, yPos + 60, { align: 'center' });
+
+    addPageNumber();
+    doc.addPage();
+    yPos = margin;
+
+    // Add table of contents
+    doc.setFontSize(16);
+    doc.text('Table of Contents', margin, yPos);
+    yPos += 10;
+
+    sections.forEach((section, index) => {
       doc.setFontSize(12);
-      const contentLines = doc.splitTextToSize(section.content, pageWidth - 40);
+      doc.text(`${index + 1}. ${section.title}`, margin, yPos);
+      yPos += 8;
 
-      // Check if we need a new page
-      if (yPos + contentLines.length * 7 > doc.internal.pageSize.getHeight()) {
+      if (yPos > pageHeight - margin) {
+        addPageNumber();
         doc.addPage();
-        yPos = 20;
-      }
-
-      doc.text(contentLines, 20, yPos);
-      yPos += contentLines.length * 7 + 15;
-
-      // Add new page for next section
-      if (yPos > doc.internal.pageSize.getHeight() - 20) {
-        doc.addPage();
-        yPos = 20;
+        yPos = margin;
       }
     });
 
-    // Save the PDF
-    doc.save('BoobaBlip-Whitepaper.pdf');
+    addPageNumber();
+    doc.addPage();
+    yPos = margin;
+
+    // Process each section
+    sections.forEach((section, index) => {
+      // Section header with styling
+      doc.setFontSize(16);
+      doc.setTextColor(0, 0, 0);
+      doc.text(`${index + 1}. ${section.title}`, margin, yPos);
+      yPos += 10;
+
+      // Process content with better formatting
+      doc.setFontSize(11);
+      doc.setTextColor(51, 51, 51);
+
+      // Split content into paragraphs
+      const paragraphs = section.content.split('\n\n');
+
+      paragraphs.forEach(paragraph => {
+        // Handle bullet points
+        if (paragraph.trim().startsWith('•')) {
+          const lines = doc.splitTextToSize(paragraph, contentWidth - 10);
+          lines.forEach(line => {
+            doc.text(line, margin + 5, yPos);
+            yPos += 6;
+
+            if (yPos > pageHeight - margin) {
+              addPageNumber();
+              doc.addPage();
+              yPos = margin;
+            }
+          });
+        } else {
+          // Regular paragraph
+          const lines = doc.splitTextToSize(paragraph, contentWidth);
+          lines.forEach(line => {
+            doc.text(line, margin, yPos);
+            yPos += 6;
+
+            if (yPos > pageHeight - margin) {
+              addPageNumber();
+              doc.addPage();
+              yPos = margin;
+            }
+          });
+        }
+
+        yPos += 4; // Add space between paragraphs
+      });
+
+      // Add extra space between sections
+      yPos += 10;
+
+      if (yPos > pageHeight - margin * 2) {
+        addPageNumber();
+        doc.addPage();
+        yPos = margin;
+      }
+
+      addPageNumber();
+    });
+
+    // Save the PDF with improved name
+    doc.save(`BoobaBlip-Technical-Whitepaper-${new Date().toISOString().split('T')[0]}.pdf`);
   };
 
   return (
