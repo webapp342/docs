@@ -77,31 +77,37 @@ export default function Whitepaper() {
     <div className="min-h-screen bg-background">
       <Hero />
 
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-4 sm:px-6 py-8">
         <div className="flex justify-end mb-4">
           <LanguageSelector />
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-8">
-          <Card className="lg:w-64 p-4 h-fit sticky top-4">
-            <TableOfContents 
-              sections={sections} 
-              activeSection={activeSection}
-            />
-          </Card>
-
-          <div 
-            className="flex-1 prose prose-slate max-w-none overflow-y-auto h-[calc(100vh-2rem)]"
-            onScroll={handleScroll}
-          >
-            {sections.map((section) => (
-              <Section 
-                key={section.id}
-                id={section.id}
-                title={section.title}
-                content={section.content}
+        <div className="flex flex-col lg:flex-row gap-6">
+          {/* Sticky sidebar for larger screens, bottom drawer for mobile */}
+          <div className="lg:w-64 order-2 lg:order-1">
+            <Card className="p-4 lg:sticky lg:top-4 shadow-lg">
+              <TableOfContents 
+                sections={sections} 
+                activeSection={activeSection}
               />
-            ))}
+            </Card>
+          </div>
+
+          {/* Main content */}
+          <div className="flex-1 order-1 lg:order-2">
+            <div 
+              className="prose prose-slate max-w-none lg:px-6 overflow-y-auto h-[calc(100vh-12rem)]"
+              onScroll={handleScroll}
+            >
+              {sections.map((section) => (
+                <Section 
+                  key={section.id}
+                  id={section.id}
+                  title={section.title}
+                  content={section.content}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>
