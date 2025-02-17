@@ -9,9 +9,8 @@ import { useState, useEffect } from "react";
 import { jsPDF } from 'jspdf';
 import { useTranslation } from 'react-i18next';
 
-// Move sections data to translation files
 export default function Whitepaper() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [activeSection, setActiveSection] = useState("vision");
 
   const sections = [
@@ -78,10 +77,14 @@ export default function Whitepaper() {
   };
 
   const handleDownload = () => {
+    // PDF'i geçerli dilde oluştur
     const doc = new jsPDF({
       orientation: 'portrait',
       unit: 'mm',
-      format: 'a4'
+      format: 'a4',
+      putOnlyUsedFonts: true,
+      compress: true,
+      hotfixes: ["px_scaling"] // PDF ölçeklendirme düzeltmesi
     });
 
     const pageWidth = doc.internal.pageSize.getWidth();
@@ -90,41 +93,75 @@ export default function Whitepaper() {
     const contentWidth = pageWidth - (2 * margin);
     let yPos = margin;
 
-    // Helper function to add page number
+    // Font boyutlarını ayarla
+    const titleSize = 24;
+    const subtitleSize = 18;
+    const headingSize = 14;
+    const bodySize = 11;
+
+    // Sayfa numarası ekleme fonksiyonu
     const addPageNumber = () => {
       doc.setFontSize(10);
       doc.setTextColor(128, 128, 128);
-      doc.text(`Page ${doc.internal.getNumberOfPages()}`, pageWidth / 2, pageHeight - 10, { align: 'center' });
+      const pageNumber = doc.getNumberOfPages();
+      doc.text(`${pageNumber}`, pageWidth / 2, pageHeight - 10, { align: 'center' });
     };
 
-    // Add cover page
-    doc.setFontSize(24);
+    // Üst bilgi ekleme fonksiyonu
+    const addHeader = () => {
+      doc.setFontSize(8);
+      doc.setTextColor(128, 128, 128);
+      const headerText = `BoobaBlip - ${new Date().toLocaleDateString(i18n.language)}`;
+      doc.text(headerText, margin, 10);
+    };
+
+    // PDF meta verileri
+    doc.setProperties({
+      title: `BoobaBlip Technical Whitepaper - ${new Date().toLocaleDateString(i18n.language)}`,
+      subject: 'Quantum Computing and AI in Finance',
+      author: 'BoobaBlip',
+      keywords: 'quantum computing, AI, finance, blockchain',
+      creator: 'BoobaBlip'
+    });
+
+    // Kapak sayfası
+    doc.setFontSize(titleSize);
     doc.setTextColor(0, 0, 0);
     doc.text('BoobaBlip', pageWidth/2, yPos + 40, { align: 'center' });
 
-    doc.setFontSize(18);
-    doc.text('Technical Whitepaper', pageWidth/2, yPos + 50, { align: 'center' });
+    doc.setFontSize(subtitleSize);
+    doc.text(t('sections.vision.title'), pageWidth/2, yPos + 50, { align: 'center' });
 
-    doc.setFontSize(12);
-    doc.text(`Generated: ${new Date().toLocaleDateString()}`, pageWidth/2, yPos + 60, { align: 'center' });
+    doc.setFontSize(bodySize);
+    doc.text(new Date().toLocaleDateString(i18n.language), pageWidth/2, yPos + 60, { align: 'center' });
 
     addPageNumber();
     doc.addPage();
     yPos = margin;
 
-    // Add table of contents
-    doc.setFontSize(16);
-    doc.text('Table of Contents', margin, yPos);
+    // İçindekiler
+    addHeader();
+    doc.setFontSize(subtitleSize);
+    doc.setTextColor(0, 0, 0);
+    doc.text(t('toc'), margin, yPos);
     yPos += 10;
 
     sections.forEach((section, index) => {
-      doc.setFontSize(12);
-      doc.text(`${index + 1}. ${section.title}`, margin, yPos);
+      doc.setFontSize(bodySize);
+      const tocEntry = `${index + 1}. ${section.title}`;
+      const dotLeader = '.'.repeat(50);
+      const pageNum = (index + 3).toString(); // Kapak ve içindekiler sayfalarını hesaba kat
+
+      doc.text(tocEntry, margin, yPos);
+      doc.text(dotLeader, margin + 50, yPos, { align: 'left' });
+      doc.text(pageNum, pageWidth - margin, yPos, { align: 'right' });
+
       yPos += 8;
 
       if (yPos > pageHeight - margin) {
         addPageNumber();
         doc.addPage();
+        addHeader();
         yPos = margin;
       }
     });
@@ -133,67 +170,72 @@ export default function Whitepaper() {
     doc.addPage();
     yPos = margin;
 
-    // Process each section
+    // İçerik sayfaları
     sections.forEach((section, index) => {
-      // Section header with styling
-      doc.setFontSize(16);
+      addHeader();
+
+      // Bölüm başlığı
+      doc.setFontSize(headingSize);
       doc.setTextColor(0, 0, 0);
-      doc.text(`${index + 1}. ${section.title}`, margin, yPos);
+      const sectionHeader = `${index + 1}. ${section.title}`;
+      doc.text(sectionHeader, margin, yPos);
       yPos += 10;
 
-      // Process content with better formatting
-      doc.setFontSize(11);
+      // İçerik işleme
+      doc.setFontSize(bodySize);
       doc.setTextColor(51, 51, 51);
 
-      // Split content into paragraphs
       const paragraphs = section.content.split('\n\n');
 
       paragraphs.forEach(paragraph => {
-        // Handle bullet points
+        const lines = doc.splitTextToSize(paragraph.trim(), contentWidth);
+
+        // Madde işaretlerini işle
         if (paragraph.trim().startsWith('•')) {
-          const lines = doc.splitTextToSize(paragraph, contentWidth - 10);
-          lines.forEach(line => {
+          lines.forEach((line: string) => {
             doc.text(line, margin + 5, yPos);
             yPos += 6;
 
             if (yPos > pageHeight - margin) {
               addPageNumber();
               doc.addPage();
+              addHeader();
               yPos = margin;
             }
           });
         } else {
-          // Regular paragraph
-          const lines = doc.splitTextToSize(paragraph, contentWidth);
-          lines.forEach(line => {
+          lines.forEach((line: string) => {
             doc.text(line, margin, yPos);
             yPos += 6;
 
             if (yPos > pageHeight - margin) {
               addPageNumber();
               doc.addPage();
+              addHeader();
               yPos = margin;
             }
           });
         }
 
-        yPos += 4; // Add space between paragraphs
+        yPos += 4; // Paragraflar arası boşluk
       });
 
-      // Add extra space between sections
-      yPos += 10;
+      yPos += 8; // Bölümler arası boşluk
 
       if (yPos > pageHeight - margin * 2) {
         addPageNumber();
         doc.addPage();
+        addHeader();
         yPos = margin;
       }
-
-      addPageNumber();
     });
 
-    // Save the PDF with improved name
-    doc.save(`BoobaBlip-Technical-Whitepaper-${new Date().toISOString().split('T')[0]}.pdf`);
+    addPageNumber();
+
+    // Dile özgü dosya adıyla kaydet
+    const timestamp = new Date().toISOString().split('T')[0];
+    const filename = `BoobaBlip-Whitepaper-${i18n.language}-${timestamp}.pdf`;
+    doc.save(filename);
   };
 
   return (
