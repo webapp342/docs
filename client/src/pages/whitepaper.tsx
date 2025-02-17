@@ -5,6 +5,7 @@ import TableOfContents from "../components/whitepaper/TableOfContents";
 import Section from "../components/whitepaper/Section";
 import Hero from "../components/whitepaper/Hero";
 import { useState } from "react";
+import { jsPDF } from 'jspdf';
 
 const sections = [
   {
@@ -545,8 +546,44 @@ export default function Whitepaper() {
   };
 
   const handleDownload = () => {
-    // In a real implementation, this would generate and download a PDF
-    alert("PDF download functionality would be implemented here");
+    const doc = new jsPDF();
+    let yPos = 20;
+    const pageWidth = doc.internal.pageSize.getWidth();
+
+    // Add title
+    doc.setFontSize(20);
+    doc.text('BoobaBlip Technical Whitepaper', pageWidth/2, yPos, { align: 'center' });
+    yPos += 20;
+
+    // Process each section
+    sections.forEach((section) => {
+      // Add section title
+      doc.setFontSize(16);
+      doc.text(section.title, 20, yPos);
+      yPos += 10;
+
+      // Add section content
+      doc.setFontSize(12);
+      const contentLines = doc.splitTextToSize(section.content, pageWidth - 40);
+
+      // Check if we need a new page
+      if (yPos + contentLines.length * 7 > doc.internal.pageSize.getHeight()) {
+        doc.addPage();
+        yPos = 20;
+      }
+
+      doc.text(contentLines, 20, yPos);
+      yPos += contentLines.length * 7 + 15;
+
+      // Add new page for next section
+      if (yPos > doc.internal.pageSize.getHeight() - 20) {
+        doc.addPage();
+        yPos = 20;
+      }
+    });
+
+    // Save the PDF
+    doc.save('BoobaBlip-Whitepaper.pdf');
   };
 
   return (
