@@ -1,0 +1,13 @@
+{
+  "download-pdf": "Ladda ner PDF",
+  "sections": {
+    "vision": {
+      "title": "Vision & Mission",
+      "content": "BoobaBlip förutser en transformativ framtid för finansmarknader genom konvergensen av kvantdatorer och artificiell intelligens:\n\n1. Strategisk Vision\nVår vision är att revolutionera finansbranschen genom att:\n• Demokratisera tillgången till kvantdriven finansiell intelligens\n• Sätta nya standarder inom marknadsanalys och riskhantering\n• Skapa ett mer effektivt och transparent finansiellt ekosystem\n• Främja gränserna för kvantfinansiell forskning\n• Främja innovation inom decentraliserad finans och traditionella marknader"
+    },
+    "introduction": {
+      "title": "Introduktion",
+      "content": "BoobaBlip representerar ett paradigmskifte inom kvantitativ finans genom integrationen av kvantberäkningsmetoder med avancerad finansiell modellering. Detta tekniska vitpapper presenterar en omfattande analys av vår kvantförbättrade finansiella intelligensplattform, som utnyttjar kvantmekaniska principer för att revolutionera institutionell handel och riskhantering."
+    }
+  }
+}

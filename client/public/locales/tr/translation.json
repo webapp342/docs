@@ -1,0 +1,13 @@
+{
+  "download-pdf": "PDF İndir",
+  "sections": {
+    "vision": {
+      "title": "Vizyon & Misyon",
+      "content": "BoobaBlip, kuantum bilişim ve yapay zeka yakınsaması yoluyla finansal piyasalar için dönüştürücü bir gelecek öngörüyor:\n\n1. Stratejik Vizyon\nVizyonumuz, finans sektörünü şu yollarla devrimleştirmektir:\n• Kuantum destekli finansal istihbarata erişimi demokratikleştirmek\n• Piyasa analizi ve risk yönetiminde yeni standartlar belirlemek\n• Daha verimli ve şeffaf bir finansal ekosistem yaratmak\n• Kuantum finans araştırmalarının sınırlarını ilerletmek\n• Merkezi olmayan finans ve geleneksel piyasalarda inovasyonu teşvik etmek"
+    },
+    "introduction": {
+      "title": "Giriş",
+      "content": "BoobaBlip, kuantum bilişim metodolojilerinin gelişmiş finansal modellemelerle entegrasyonu yoluyla kantitatif finansta bir paradigma değişimini temsil eder. Bu teknik beyaz kitap, kurumsal ticaret ve risk yönetimini devrimleştirmek için kuantum mekanik prensiplerinden yararlanan kuantum-destekli finansal zeka platformumuzun kapsamlı bir analizini sunar."
+    }
+  }
+}

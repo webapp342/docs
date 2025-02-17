@@ -1,0 +1,13 @@
+{
+  "download-pdf": "Descargar PDF",
+  "sections": {
+    "vision": {
+      "title": "Visión y Misión",
+      "content": "BoobaBlip prevé un futuro transformador para los mercados financieros a través de la convergencia de la computación cuántica y la inteligencia artificial:\n\n1. Visión Estratégica\nNuestra visión es revolucionar la industria financiera:\n• Democratizando el acceso a la inteligencia financiera cuántica\n• Estableciendo nuevos estándares en análisis de mercado y gestión de riesgos\n• Creando un ecosistema financiero más eficiente y transparente\n• Avanzando en las fronteras de la investigación financiera cuántica\n• Fomentando la innovación en finanzas descentralizadas y mercados tradicionales"
+    },
+    "introduction": {
+      "title": "Introducción",
+      "content": "BoobaBlip representa un cambio de paradigma en las finanzas cuantitativas a través de la integración de metodologías de computación cuántica con modelado financiero avanzado. Este documento técnico presenta un análisis exhaustivo de nuestra plataforma de inteligencia financiera mejorada cuánticamente, que aprovecha los principios de la mecánica cuántica para revolucionar el trading institucional y la gestión de riesgos."
+    }
+  }
+}

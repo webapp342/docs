@@ -1,0 +1,13 @@
+{
+  "download-pdf": "PDF herunterladen",
+  "sections": {
+    "vision": {
+      "title": "Vision & Mission",
+      "content": "BoobaBlip sieht eine transformative Zukunft für Finanzmärkte durch die Konvergenz von Quantencomputing und künstlicher Intelligenz:\n\n1. Strategische Vision\nUnsere Vision ist es, die Finanzindustrie zu revolutionieren durch:\n• Demokratisierung des Zugangs zu quantengestützter Finanzintelligenz\n• Setzen neuer Standards in der Marktanalyse und im Risikomanagement\n• Schaffung eines effizienteren und transparenteren Finanzökosystems\n• Vorantreiben der Grenzen der Quantenfinanzforschung\n• Förderung von Innovation in dezentralen Finanzen und traditionellen Märkten"
+    },
+    "introduction": {
+      "title": "Einführung",
+      "content": "BoobaBlip repräsentiert einen Paradigmenwechsel in der quantitativen Finanzwirtschaft durch die Integration von Quantencomputing-Methodologien mit fortgeschrittener Finanzmodellierung. Dieses technische Whitepaper präsentiert eine umfassende Analyse unserer quantengestützten Finanzintelligenz-Plattform, die Quantenmechanik-Prinzipien nutzt, um institutionellen Handel und Risikomanagement zu revolutionieren."
+    }
+  }
+}
